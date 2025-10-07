@@ -1,0 +1,19 @@
+# keys are given by github actions
+name: Run linux commands
+# on what event we have to rin the work flow
+on: workflow_dispatch
+jobs:
+  job1:  # give name of the job
+    runs-on: ubuntu-latest # run the job where
+    steps:
+      - name: execute linux commands
+        run: echo "hello"
+  job2:
+    runs-on: ubuntu-24.04
+    steps: 
+    - name: execute set of linux commands
+      run: |
+        hostname
+        echo "thank you"
+              
+
