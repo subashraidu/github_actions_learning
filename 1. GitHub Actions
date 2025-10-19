@@ -1,0 +1,10 @@
+What is GitHub Actions?
+
+GitHub Actions is a CI/CD (Continuous Integration and Continuous Deployment) platform built directly into GitHub.
+It allows you to automate any part of your development lifecycle like
+Running tests automatically on every push or pull request
+Building and deploying code
+Running scripts (linting, formatting, packaging, etc.)
+
+Github action files are defined as YAML files located in the .github/workflow folder in your repo
+You can multiple workflows in a repo triggered by different events
