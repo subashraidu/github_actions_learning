@@ -8,3 +8,19 @@ Running scripts (linting, formatting, packaging, etc.)
 
 Github action files are defined as YAML files located in the .github/workflow folder in your repo
 You can multiple workflows in a repo triggered by different events
+
+# components of git hub:
+
+Component                         |  Description                                                               |  Example                    
+----------------------------------+----------------------------------------------------------------------------+-----------------------------
+Workflow                          |  The main YAML file that defines automation. Stored in.github/workflows/.  |  main.yml                   
+Event                             |  Defines what triggers the workflow to run.                                |  on: push                   
+Job                               |  A group of steps that run on the same runner.                             |  build,test,deploy          
+Step                              |  A single task within a job. Can run commands or actions.                  |  run: npm test              
+Action                            |  Prebuilt, reusable code that simplifies tasks.                            |  uses: actions/checkout@v5  
+Runner                            |  The execution environment for the jobs (GitHub-hosted or self-hosted).    |  ubuntu-latest              
+Environment Variables (Env Vars)  |  Configuration values accessible to steps.                                 |  env: VERSION: 1.0          
+Secrets                           |  Secure, encrypted values used for credentials or tokens.                  |  ${{ secrets.TOKEN }}       
+Artifacts                         |  Files saved from a job (e.g., logs, build outputs).                       |  Upload logs or test results
+Cache                             |  Stores reusable dependencies to speed up builds.                          |  npm or pip cache           
+Matrix                            |  Defines multiple job variants for testing across versions or OSes.        |  Node versions 14, 16, 18   
