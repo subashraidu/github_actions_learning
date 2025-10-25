@@ -24,3 +24,9 @@ Secrets                           |  Secure, encrypted values used for credentia
 Artifacts                         |  Files saved from a job (e.g., logs, build outputs).                       |  Upload logs or test results
 Cache                             |  Stores reusable dependencies to speed up builds.                          |  npm or pip cache           
 Matrix                            |  Defines multiple job variants for testing across versions or OSes.        |  Node versions 14, 16, 18   
+
+
+GitHub Actions workflows must be stored inside this specific folder:
+.github/workflows/
+
+itHub does not scan other folders for workflows — only .yml or .yaml files inside .github/workflows/ are recognized as valid workflows.
