@@ -1,0 +1,33 @@
+# What is Continuous Integration (CI)?
+Continuous Integration (CI) is the practice of automatically building and testing code every time a developer makes a change — usually when they push commits to a shared repository like GitHub.
+
+# How It Works (Step-by-Step)
+A developer writes some code and commits it.
+The code is pushed to GitHub.
+A CI workflow (like a GitHub Action) is triggered.
+The workflow:
+Checks out the code
+Installs dependencies
+Runs automated tests or linters
+Builds the project (if applicable)
+  If all steps pass → the code can be merged safely.
+  If something fails → the developer is notified immediately.
+
+Why CI Matters
+Benefit	Description
+Faster feedback	Developers know immediately if new code breaks something.
+Early bug detection	Issues are caught before they reach production.
+Team collaboration	Makes it easier for multiple people to contribute safely.
+Consistent builds	Every build is created the same way — automatically.
+Automation foundation	CI is the first step toward full CI/CD pipelines.
+
+# Speed of Software Delivery over Time
+
+The time between writing and shipping software has shrunk drastically over the decades:
+
+| Era             | Delivery Method               | Turnaround Time        |
+|-------------------|-------------------------------|------------------------|
+| 🧮 1960s–70s      | **Punch cards / Mainframes**    | Forever?       |
+| 💾 1980s–90s      | **Floppy disks, CDs**          | Months.              |
+| 🌐 2000s (dot com boom)         | **Server deployments**         | Daily to weekly      |
+| ☁️ 2010s–Now      | **CI/CD pipelines & cloud**     | Multiple times per day |
