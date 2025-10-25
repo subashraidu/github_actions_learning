@@ -1,0 +1,20 @@
+name: build java application
+on:
+  push:
+    branches:
+      - master
+jobs:
+  buildjob:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone the repo
+        uses: actions/checkout@v5
+      - name: Install java 17 and runner
+        uses: actions/setup-java@v5
+        with:
+         java-version: '21'
+         distribution: 'temurin'
+         cache: 'maven'
+      - name: build the java code
+        run: mvn clean install package
+

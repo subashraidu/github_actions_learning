@@ -1,0 +1,32 @@
+name: build python work flow
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  job-workflow-variable:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout the code
+        uses: actions/checkout@v5
+
+      - name: setup python
+        env: 
+          VERSION: ${{ vars.PYTHON_VERSION}}
+        uses: actions/setup-python@v5
+        with:
+          python-version: $VERSION
+
+      - name: Install dependencies
+        run: |
+        pip install --upgrade pip
+        pip install -r requirements.txt
+
+      - name: setup pythonpath # we need to give a directory where the python command need to be executed 
+        run: echo "PYTHONPATH"=$GITHUB_WORKSPACE >> $GITHUB_ENV
+      - name: Run tests
+        env: 
+          mycmd: ${{vars.PYTHONCMD}}
+        run: $mycmd
+        

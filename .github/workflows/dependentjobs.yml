@@ -1,0 +1,49 @@
+name: build node application
+on:
+  push:
+    branches:
+      - master
+jobs:
+  job-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone the repo
+        uses: actions/checkout@v5
+      - name: Install nodejs
+        uses: actions/setup-node@v5
+        with:
+          node-version: '18'
+          cache: 'npm'
+         
+      - name: Install dependencies
+        run: npm ci
+      - name: run test cases
+        run: npm test
+      - name: upload the report to github repo
+        uses: actions/upload-artifact@v4
+        with:
+          name: test.json
+          path: /home/runner/work/GithubActions-NodeJs-Demo/GithubActions-NodeJs-Demo
+  job-build:
+    needs: job-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone the repo
+        uses: actions/checkout@v5
+      - name: Install nodejs
+        uses: actions/setup-node@v5
+        with:
+          node-version: '18'
+          cache: 'npm'
+         
+      - name: Install dependencies
+        run: npm ci   
+      - name: build code
+        run: npm run build
+      - name: upload the artifact from runner to github repo
+        uses: actions/upload-artifact@v4
+        with:
+          name: index.js
+          path: dist/assets/index.49001b93.js
+        
+
