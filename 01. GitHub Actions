@@ -29,4 +29,4 @@ Matrix                            |  Defines multiple job variants for testing a
 GitHub Actions workflows must be stored inside this specific folder:
 .github/workflows/
 
-itHub does not scan other folders for workflows — only .yml or .yaml files inside .github/workflows/ are recognized as valid workflows.
+GitHub does not scan other folders for workflows — only .yml or .yaml files inside .github/workflows/ are recognized as valid workflows.
