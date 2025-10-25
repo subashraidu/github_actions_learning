@@ -63,4 +63,26 @@ Environment variables help you:
 | GitHub Built-in | System-defined | `$GITHUB_REF_NAME`         | Always available |
 | Secret          | Secure value   | `${{ secrets.MY_SECRET }}` | Safe in logs     |
 
+What Is a Runner?
+A runner is a machine (virtual or physical) that executes the jobs defined in your GitHub Actions workflow.
+When a workflow runs, GitHub picks a runner and executes the steps in that job on it.
+
+| Type                                        | Description                                                                           | Where It Runs                       | Example Use Case                                 |
+| ------------------------------------------- | ------------------------------------------------------------------------------------- | ----------------------------------- | ------------------------------------------------ |
+| **1. GitHub-Hosted Runner**                 | Provided & maintained by GitHub. You don’t manage or configure it.                    | On GitHub’s cloud infrastructure    | CI/CD for open-source or small projects          |
+| **2. Self-Hosted Runner**                   | You install and manage it on your own machine, VM, or cloud instance.                 | Your own infrastructure             | Build in private network, or faster local builds |
+| **3. 3rd-Party Runner (Custom/Enterprise)** | Provided by a vendor (e.g. Actions Runner Controller for Kubernetes, CircleCI, etc.). | External systems or managed service | Used in large orgs with advanced infrastructure  |
+
+Self-Hosted Runners Setup Steps:
+Step 1 — Go to your repo
+GitHub Repository → Settings → Actions → Runners → New self-hosted runner
+Step 2 — Choose OS (Linux, Windows, macOS)
+Step 3 — Copy the registration command
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - run: echo "Running on my own runner"
+
 
