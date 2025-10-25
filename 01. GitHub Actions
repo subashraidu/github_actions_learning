@@ -30,3 +30,8 @@ GitHub Actions workflows must be stored inside this specific folder:
 .github/workflows/
 
 GitHub does not scan other folders for workflows — only .yml or .yaml files inside .github/workflows/ are recognized as valid workflows.
+
+needs:
+The needs: keyword defines dependencies between jobs — i.e., which jobs must finish successfully before another job can start.
+Jobs can run in parallel unless they are linked by needs.
+If one of the needs jobs fails, then the dependent job won’t run.
