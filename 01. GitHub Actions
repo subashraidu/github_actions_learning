@@ -35,3 +35,17 @@ needs:
 The needs: keyword defines dependencies between jobs — i.e., which jobs must finish successfully before another job can start.
 Jobs can run in parallel unless they are linked by needs.
 If one of the needs jobs fails, then the dependent job won’t run.
+
+on:
+A triggering event (defined under the on: keyword) is what starts a workflow automatically or 
+manually.
+Every time the specified event happens in your repository — like a push, pull request, or
+issue — GitHub checks your workflow file and decides whether to run it.
+
+| Category            | Event                                                                    | Description                         |
+| ------------------- | ------------------------------------------------------------------------ | ----------------------------------- |
+| **Code-related**    | `push`, `pull_request`, `workflow_dispatch`, `schedule`, `workflow_call` | Most common workflow triggers       |
+| **Repo management** | `create`, `delete`, `release`, `fork`                                    | Branch or tag activity              |
+| **Collaboration**   | `issues`, `issue_comment`, `pull_request_review`                         | When users interact with issues/PRs |
+| **Advanced CI/CD**  | `workflow_run`, `deployment`, `repository_dispatch`                      | Chaining and external triggers      |
+
