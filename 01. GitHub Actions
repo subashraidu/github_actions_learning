@@ -49,3 +49,18 @@ issue — GitHub checks your workflow file and decides whether to run it.
 | **Collaboration**   | `issues`, `issue_comment`, `pull_request_review`                         | When users interact with issues/PRs |
 | **Advanced CI/CD**  | `workflow_run`, `deployment`, `repository_dispatch`                      | Chaining and external triggers      |
 
+Environment variables help you:
+✅ Avoid repeating values (e.g. Python version, app name, paths)
+✅ Pass configuration between steps/jobs
+✅ Hide sensitive info (via GitHub Secrets)
+✅ Make workflows dynamic and easier to maintain
+
+| Level           | Scope          | Example                    | Accessed By      |
+| --------------- | -------------- | -------------------------- | ---------------- |
+| Workflow        | All jobs       | `env: { VAR: value }`      | `$VAR`           |
+| Job             | Single job     | `jobs.build.env`           | `$VAR`           |
+| Step            | Single step    | `steps.run.env`            | `$VAR`           |
+| GitHub Built-in | System-defined | `$GITHUB_REF_NAME`         | Always available |
+| Secret          | Secure value   | `${{ secrets.MY_SECRET }}` | Safe in logs     |
+
+
